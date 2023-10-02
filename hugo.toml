@@ -1,5 +1,37 @@
 baseURL = 'https://example.org/'
 languageCode = 'en-us'
-title = 'Blog'
+title = "Citadin's blog"
 
 theme = "hugo-blog-awesome"
+
+# This defines how dates are formatted
+defaultContentLanguage = "en-us"
+
+# Enable emojis globally
+enableEmoji = true
+ignoreErrors = ["additional-script-loading-error"] # ignore error of loading additional scripts.
+
+# set markup.highlight.noClasses=false to enable code highlight
+[markup]
+  [markup.highlight]
+    noClasses = false
+  [markup.goldmark.renderer]
+    unsafe = true
+	[markup.tableOfContents]
+		startLevel = 2 # ToC starts from H2
+		endLevel = 4 # ToC ends at H4
+		ordered = false # generates <ul> instead of <ol>
+
+[params.browserconfig]
+  TileColor = "#2d89ef" # default windows 10 blue tile color
+
+[[params.socialIcons]]
+name = "github"
+url = "https://github.com/rodrigocitadin"
+
+[[params.socialIcons]]
+name = "linkedin"
+url = "https://linkedin.com/in/rodrigobcitadin"
+
+[params]
+  goToTop = true
