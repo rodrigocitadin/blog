@@ -9,16 +9,24 @@ import { useRef } from 'react';
 export default function Home() {
   function Torus(props: ThreeElements['mesh']) {
     const ref = useRef<THREE.Mesh>(null!);
-    useFrame((_, delta) => ref.current.rotation.x += delta);
+    useFrame((_, delta) => {
+      ref.current.rotation.x += delta;
+      ref.current.rotation.y += delta;
+    });
 
     return (
       <mesh
         {...props}
         ref={ref}
-        scale={0.2}
+        scale={0.02}
       >
-        <torusKnotGeometry args={[10, 2, 92, 8, 4, 3]} />
-        <meshBasicMaterial color="#55989C" />
+        <torusKnotGeometry args={[70, 30, 80, 10]} />
+        <meshPhysicalMaterial 
+          color={0x194c7f} 
+          polygonOffset
+          polygonOffsetFactor={1}
+          polygonOffsetUnits={1}
+        />
       </mesh>
     )
   }
