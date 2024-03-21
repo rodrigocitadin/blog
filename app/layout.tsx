@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Ubuntu_Mono } from "next/font/google";
 import "./globals.css";
+import ListIcon from "./icons/ListIcon";
+import Link from "next/link";
 
 const inter = Ubuntu_Mono({ subsets: ["latin"], weight: ["400", "700"] });
 
@@ -16,7 +18,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <header className="z-50 fixed w-full top-0">
+          <nav className="mt-2 w-[90%] md:w-[80%] xl:w-[50%] m-auto flex justify-between">
+            <Link href="/">c.dev</Link>
+            <ListIcon />
+          </nav>
+        </header>
+        {children}
+      </body>
     </html>
   );
 }
