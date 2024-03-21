@@ -42,7 +42,7 @@ export default function Home() {
       </div>
 
       {/* mobius strip here */}
-      <div className="h-[600px]">
+      <div className="mt-10 h-[600px]">
         <Canvas className="top-0 left-0 w-full h-full">
           <Torus position={[0, 0, 0]} />
         </Canvas>
