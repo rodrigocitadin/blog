@@ -18,7 +18,7 @@ export default function Home() {
       <mesh
         {...props}
         ref={ref}
-        scale={0.03}
+        scale={0.02}
       >
         <torusKnotGeometry args={[70, 30, 80, 10]} />
         <meshStandardMaterial
@@ -40,9 +40,11 @@ export default function Home() {
       </nav>
 
       {/* mobius strip here */}
-      <Canvas>
-        <Torus position={[0, 0, 0]} />
-      </Canvas>
+      <div className="h-[600px]">
+        <Canvas className="top-0 left-0 w-full h-full">
+          <Torus position={[0, 0, 0]} />
+        </Canvas>
+      </div>
 
       {/* my pic and texts here */}
     </main>
