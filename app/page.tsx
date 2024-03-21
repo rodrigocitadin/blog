@@ -8,6 +8,9 @@ export default function Home() {
         <Link href="/">c.dev</Link>
         <ListIcon/>
       </nav>
+      {/* mobius strip here */}
+
+      {/* my pic and texts here */}
     </main>
   );
 }
