@@ -11,8 +11,6 @@ export default function Home() {
       {/* mobius strip here */}
 
       {/* my pic and texts here */}
-
-
     </main>
   );
 }
