@@ -33,11 +33,13 @@ export default function Home() {
   }
 
   return (
-    <main className="w-[90%] m-auto">
-      <nav className="flex justify-between">
-        <Link href="/">c.dev</Link>
-        <ListIcon />
-      </nav>
+    <main className="text-black-900">
+      <div className="z-50 fixed w-full top-0">
+        <nav className="mt-2 w-[90%] m-auto flex justify-between">
+          <Link href="/">c.dev</Link>
+          <ListIcon />
+        </nav>
+      </div>
 
       {/* mobius strip here */}
       <div className="h-[600px]">
