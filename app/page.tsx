@@ -1,5 +1,3 @@
-'use client';
-
 import Link from "next/link";
 import ListIcon from "./icons/ListIcon";
 import TorusKnot from "./components/TorusKnot";
