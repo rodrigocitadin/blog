@@ -7,7 +7,7 @@ export default function Resume() {
         className="md:float-start m-auto mb-8 md:mr-8 md:mb-4 rounded-md opacity-90"
         src="/avatar.jpeg"
         alt="random guy"
-        width={300}
+        width={280}
         height={0}
       />
       <p className="text-lg mb-4">
