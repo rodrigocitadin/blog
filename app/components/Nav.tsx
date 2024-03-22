@@ -3,15 +3,29 @@
 import ListIcon from "@/app/icons/ListIcon";
 import clsx from "clsx";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CloseIcon from "../icons/CloseIcon";
 
 export default function Nav() {
   const [asideOpen, setAsideOpen] = useState(false);
+  const [bgColor, setBgColor] = useState(true);
+
+  const listenScrollEvent = () => {
+    window.scrollY < 600
+      ? setBgColor(false)
+      : setBgColor(true)
+  }
+
+  useEffect(() => {
+    window.addEventListener("scroll", listenScrollEvent)
+  }, [bgColor]);
 
   return (
-    <header className="z-50 fixed w-full top-0">
-      <nav className="md:items-center items-start mt-2 w-[90%] md:w-[80%] xl:w-[50%] m-auto flex justify-between">
+    <header className={clsx(
+      'z-50 fixed w-full border-b-[1px] border-b-transparent top-0 py-2 transition-all duration-300', 
+      { 'bg-white !border-b-light': bgColor }
+    )}>
+      <nav className="md:items-center items-start w-[90%] md:w-[80%] xl:w-[50%] m-auto flex justify-between">
         <Link
           className="transition-all duration-300 text-2xl border-b-2 border-t-2 border-transparent hover:border-b-black-900"
           href="/"
@@ -41,13 +55,13 @@ export default function Nav() {
         </div>
         <div className="hidden md:flex gap-8">
           <Link
-            className="transition-all duration-300 text-2xl border-b-2 border-t-2 border-transparent hover:border-b-black-900" 
+            className="transition-all duration-300 text-2xl border-b-2 border-t-2 border-transparent hover:border-b-black-900"
             href="/blog"
           >
             blog
           </Link>
           <Link
-            className="transition-all duration-300 text-2xl border-b-2 border-t-2 border-transparent hover:border-b-black-900" 
+            className="transition-all duration-300 text-2xl border-b-2 border-t-2 border-transparent hover:border-b-black-900"
             href="/projects"
           >
             projects
