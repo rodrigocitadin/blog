@@ -2,16 +2,25 @@ import Image from 'next/image';
 
 export default function Resume() {
   return (
-    <div className="mt-32 w-[90%] md:w-[80%] xl:w-[50%] m-auto md:flex-row flex flex-col gap-8 items-start">
+    <div className="mt-32 w-[90%] md:w-[80%] xl:w-[50%] m-auto">
       <Image
-        className="rounded-md opacity-90 shadow-md shadow-black-600"
-        src="/avatar.jpg"
+        className="md:float-start m-auto mb-8 md:mr-8 md:mb-4 rounded-md opacity-90"
+        src="/avatar.jpeg"
         alt="random guy"
         width={300}
-        height={366}
+        height={0}
       />
-      <p className="text-lg">
-        Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi Lorem pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur officia. Reprehenderit nostrud nostrud ipsum Lorem est aliquip amet voluptate voluptate dolor minim nulla est proident. Nostrud officia pariatur ut officia. Sit irure elit esse ea nulla sunt ex occaecat reprehenderit commodo officia dolor Lorem duis laboris cupidatat officia voluptate. Culpa proident adipisicing id nulla nisi laboris ex in Lorem sunt duis officia eiusmod. Aliqua reprehenderit commodo ex non excepteur duis sunt velit enim. Voluptate laboris sint cupidatat ullamco ut ea consectetur et est culpa et culpa duis.
+      <p className="text-lg mb-4">
+        Meet Citadin, a passionate software engineer with a knack for tackling complex challenges. Since diving into coding in 2020, Citadin has swiftly mastered a range of technologies and methodologies. With 1.5 years of hands-on experience in backend development using Typescript and Nest.js, Citadin has honed their skills in building robust and scalable server-side applications.
+      </p>
+      <p className="text-lg mb-4">
+        What sets Citadin apart is their full-stack expertise, seamlessly transitioning between front-end and back-end technologies. Whether it's crafting elegant user interfaces with React.js and Next.js or architecting efficient backend systems with Elixir, .NET, C#, and F#, Citadin brings a versatile skill set to the table.
+      </p>
+      <p className="text-lg mb-4">
+        Beyond their technical prowess, Citadin has a deep understanding of general math, type systems, distributed systems, and functional languages. This comprehensive knowledge allows Citadin to not only write clean and maintainable code but also design and implement sophisticated solutions that stand the test of time.
+      </p>
+      <p className="text-lg mb-4">
+        In the ever-evolving landscape of software engineering, Citadin's blend of experience, expertise, and continuous learning makes them a valuable asset to any team or project.
       </p>
     </div>
   )
