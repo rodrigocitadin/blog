@@ -9,11 +9,12 @@ const config: Config = {
   theme: {
     colors: {
       transparent: 'transparent',
+      white: '#FFFFFF',
+      light: '#EEEEEE',
       'black-900': '#222831',
       'black-600': '#31363F',
       'blue-500': '#55989C',
-      'blue-300': '#76ABAE',
-      white: '#EEEEEE'
+      'blue-300': '#76ABAE'
     }
   },
   plugins: [],
