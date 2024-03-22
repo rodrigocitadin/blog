@@ -25,7 +25,7 @@ export default function Nav() {
               { '!grid-rows-[1fr]': asideOpen }
             )}>
               <span>blog</span>
-              <span>portfolio</span>
+              <span>projects</span>
             </aside>
           </div>
         </div>
