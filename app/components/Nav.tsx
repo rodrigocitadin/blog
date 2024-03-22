@@ -24,8 +24,8 @@ export default function Nav() {
               'overflow-hidden flex flex-col items-end mt-2',
               { '!grid-rows-[1fr]': asideOpen }
             )}>
-              <span>blog</span>
-              <span>projects</span>
+              <Link href="/blog">blog</Link>
+              <Link href="/projects">projects</Link>
             </aside>
           </div>
         </div>
