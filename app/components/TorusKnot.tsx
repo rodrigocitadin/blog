@@ -10,7 +10,7 @@ export default function TorusKnot() {
   function Mobius(props: ThreeElements['mesh']) {
     const ref = useRef<THREE.Mesh>(null!);
     useFrame(() => {
-      ref.current.rotation.x += 0.005;
+      ref.current.rotation.x += 0.01;
       ref.current.rotation.y += 0.005;
     });
 
