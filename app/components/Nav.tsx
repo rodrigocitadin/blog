@@ -1,13 +1,29 @@
+'use client'
+
 import ListIcon from "@/app/icons/ListIcon";
+import clsx from "clsx";
 import Link from "next/link";
+import { useState } from "react";
 
 export default function Nav() {
+  const [asideOpen, setAsideOpen] = useState(false);
+
   return (
     <header className="z-50 fixed w-full top-0">
       <nav className="items-center mt-2 w-[90%] md:w-[80%] xl:w-[50%] m-auto flex justify-between">
         <Link className="text-2xl" href="/">c.dev</Link>
-        <ListIcon />
+        <button onClick={() => { setAsideOpen(!asideOpen); console.log(asideOpen) }}>
+          <ListIcon />
+        </button>
       </nav>
+      <aside className={clsx(
+        'hidden',
+        {
+          '!block': asideOpen
+        }
+      )}>
+        hello
+      </aside>
     </header>
   )
 }
