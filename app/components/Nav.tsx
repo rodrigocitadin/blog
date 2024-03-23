@@ -8,7 +8,7 @@ import CloseIcon from "../icons/CloseIcon";
 
 export default function Nav() {
   const [asideOpen, setAsideOpen] = useState(false);
-  const [bgColor, setBgColor] = useState(true);
+  const [bgColor, setBgColor] = useState(false);
 
   const listenScrollEvent = () => {
     window.scrollY < 600
