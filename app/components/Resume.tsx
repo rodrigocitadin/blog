@@ -1,15 +1,20 @@
-import Image from 'next/image';
+'use client'
+
+import { useEffect, useState } from "react"
 
 export default function Resume() {
+  let [fade, setFade] = useState("");
+
+  const listenScrollEvent = () => {
+    window.scrollY >= 200 && setFade("opacity-100")
+  }
+
+  useEffect(() => {
+    window.addEventListener("scroll", listenScrollEvent)
+  })
+
   return (
-    <div className="mt-32">
-      {/* <Image */}
-      {/*   className="md:float-start m-auto mb-8 md:mr-8 md:mb-4 rounded-md opacity-90" */}
-      {/*   src="/avatar.jpeg" */}
-      {/*   alt="random guy" */}
-      {/*   width={280} */}
-      {/*   height={0} */}
-      {/* /> */}
+    <div className={`mt-32 transition-opacity duration-1000 opacity-0 ${fade}`}>
       <p className="text-lg mb-4">
         {`Meet Citadin, a passionate software engineer with a knack for tackling complex challenges. Since diving into coding in 2020, Citadin has swiftly mastered a range of technologies and methodologies. With 1.5 years of hands-on experience in backend development using Typescript and Nest.js, Citadin has honed their skills in building robust and scalable server-side applications.`}
       </p>
