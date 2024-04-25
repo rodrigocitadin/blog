@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function Resume() {
   return (
-    <div className="mt-32 w-[90%] md:w-[80%] xl:w-[50%] m-auto">
+    <div className="mt-32">
       {/* <Image */}
       {/*   className="md:float-start m-auto mb-8 md:mr-8 md:mb-4 rounded-md opacity-90" */}
       {/*   src="/avatar.jpeg" */}
