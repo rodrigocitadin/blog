@@ -1,14 +1,14 @@
 'use client'
 
-import ListIcon from "@/app/icons/ListIcon";
 import clsx from "clsx";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import CloseIcon from "../icons/CloseIcon";
+import CloseIcon from "@/app/icons/CloseIcon";
+import ListIcon from "@/app/icons/ListIcon";
 
 export default function Nav() {
+  const [bgColor, setBgColor] = useState(false);
   const [asideOpen, setAsideOpen] = useState(false);
-  const [bgColor, setBgColor] = useState(true);
 
   const listenScrollEvent = () => {
     window.scrollY < 600
@@ -22,7 +22,7 @@ export default function Nav() {
 
   return (
     <header className={clsx(
-      'z-50 fixed w-full border-b-[1px] border-b-transparent top-0 py-2 transition-all duration-300', 
+      'z-50 fixed w-full border-b-[1px] border-b-transparent top-0 py-2 transition-all duration-300',
       { 'bg-white !border-b-light': bgColor }
     )}>
       <nav className="md:items-center items-start w-[90%] md:w-[80%] xl:w-[50%] m-auto flex justify-between">
