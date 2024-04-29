@@ -11,9 +11,9 @@ export default function Nav() {
   const [asideOpen, setAsideOpen] = useState(false);
 
   const listenScrollEvent = () => {
-    window.scrollY < 600
-      ? setBgColor(false)
-      : setBgColor(true)
+    window.scrollY >= 600
+      ? setBgColor(true)
+      : setBgColor(false)
   }
 
   useEffect(() => {

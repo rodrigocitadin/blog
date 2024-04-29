@@ -1,20 +1,15 @@
-function ProjectCard({ imageSrc, desc }: { imageSrc: string, desc: string }) {
-  return (
-    <img
-      className="max-w-[450px]"
-      src={imageSrc}
-      alt={desc}
-    />
-  )
-}
+'use client'
+
+import { Fade } from "react-awesome-reveal";
+import ProjectCard from "./ProjectCard";
 
 export default function Projects() {
   return (
-    <div className="mt-12">
-      <h2 className="mb-8 text-2xl font-bold">
-        Projects
-      </h2>
-      <div className="flex flex-col gap-4">
+    <div className="mt-12 flex flex-col gap-4">
+      <Fade triggerOnce>
+        <h2 className="mb-4 text-2xl font-bold">
+          Projects
+        </h2>
         <ProjectCard
           imageSrc="https://github-readme-stats.vercel.app/api/pin/?username=rodrigocitadin&repo=moneyc&theme=graywhite"
           desc="moneyc pin"
@@ -27,7 +22,7 @@ export default function Projects() {
           imageSrc="https://github-readme-stats.vercel.app/api/pin/?username=rodrigocitadin&repo=grokking-algorithms&theme=graywhite"
           desc="moneyc pin"
         />
-      </div>
+      </Fade>
     </div>
   )
 }
