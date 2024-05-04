@@ -1,11 +1,11 @@
-# Idk
+# Why MDX?
 
-## Test
+Because I'm sex CTO bro!
 
-### sla
+## How to become sex CTO?
 
----
+* Learn how to be hot
+* Understand womem body points
+* Become me
 
-* Idk
-* IDk
-* IDK
+It's simple!
