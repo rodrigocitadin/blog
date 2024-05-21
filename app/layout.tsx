@@ -9,7 +9,7 @@ const inter = Ubuntu_Mono({ subsets: ["latin"], weight: ["400", "700"] });
 
 export const metadata: Metadata = {
   title: "c.dev",
-  description: "citadin's portfolio",
+  description: "citadin's blog",
 };
 
 export default function RootLayout({

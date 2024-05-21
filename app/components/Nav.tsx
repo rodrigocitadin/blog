@@ -1,7 +1,6 @@
 'use client'
 
 import clsx from "clsx";
-import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function Nav() {
@@ -23,18 +22,18 @@ export default function Nav() {
       { 'bg-white !border-b-light': bgColor }
     )}>
       <nav className="md:items-center items-start w-[90%] md:w-[80%] xl:w-[50%] m-auto flex justify-between">
-        <Link
+        <a
           className="transition-all duration-300 text-2xl border-b-2 border-t-2 border-transparent hover:border-b-black-900"
           href="/"
         >
           c.dev
-        </Link>
-        <Link
+        </a>
+        <a
           className="transition-all duration-300 text-2xl border-b-2 border-t-2 border-transparent hover:border-b-black-900"
           href="/blog"
         >
           blog
-        </Link>
+        </a>
       </nav>
     </header>
   )
