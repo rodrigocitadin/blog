@@ -1,14 +1,10 @@
 'use client'
 
 import clsx from "clsx";
-import Link from "next/link";
 import { useEffect, useState } from "react";
-import CloseIcon from "@/app/icons/CloseIcon";
-import ListIcon from "@/app/icons/ListIcon";
 
 export default function Nav() {
   const [bgColor, setBgColor] = useState(false);
-  const [asideOpen, setAsideOpen] = useState(false);
 
   const listenScrollEvent = () => {
     window.scrollY >= 600
@@ -26,47 +22,18 @@ export default function Nav() {
       { 'bg-white !border-b-light': bgColor }
     )}>
       <nav className="md:items-center items-start w-[90%] md:w-[80%] xl:w-[50%] m-auto flex justify-between">
-        <Link
+        <a
           className="transition-all duration-300 text-2xl border-b-2 border-t-2 border-transparent hover:border-b-black-900"
           href="/"
         >
           c.dev
-        </Link>
-        <div className="flex flex-col items-end md:hidden">
-          <button onClick={() => { setAsideOpen(!asideOpen); console.log(asideOpen) }}>
-            {
-              asideOpen
-                ? <CloseIcon />
-                : <ListIcon />
-            }
-          </button>
-          <div className={clsx(
-            'grid grid-rows-[0fr] transition-all duration-300 ',
-            { 'grid-rows-[1fr]': asideOpen }
-          )}>
-            <aside className={clsx(
-              'overflow-hidden flex flex-col items-end mt-2',
-              { '!grid-rows-[1fr]': asideOpen }
-            )}>
-              <Link className="text-xl" href="/blog">blog</Link>
-              <Link className="text-xl" href="/projects">projects</Link>
-            </aside>
-          </div>
-        </div>
-        <div className="hidden md:flex gap-8">
-          <Link
-            className="transition-all duration-300 text-2xl border-b-2 border-t-2 border-transparent hover:border-b-black-900"
-            href="/blog"
-          >
-            blog
-          </Link>
-          <Link
-            className="transition-all duration-300 text-2xl border-b-2 border-t-2 border-transparent hover:border-b-black-900"
-            href="/projects"
-          >
-            projects
-          </Link>
-        </div>
+        </a>
+        <a
+          className="transition-all duration-300 text-2xl border-b-2 border-t-2 border-transparent hover:border-b-black-900"
+          href="/blog"
+        >
+          blog
+        </a>
       </nav>
     </header>
   )

@@ -5,6 +5,7 @@ import { useRef } from "react";
 import * as THREE from 'three';
 import { ParametricGeometry } from "three/addons/geometries/ParametricGeometry.js";
 import { ParametricGeometries } from "three/addons/geometries/ParametricGeometries.js";
+import { Fade } from "react-awesome-reveal";
 
 export default function TorusKnot() {
   function Mobius(props: ThreeElements['mesh']) {
@@ -65,10 +66,12 @@ export default function TorusKnot() {
   // }
 
   return (
-    <div className="mt-10 h-[600px]">
-      <Canvas className="top-0 left-0 w-full h-full">
-        <Mobius position={[0, 0, 0]} />
-      </Canvas>
-    </div>
+    <Fade triggerOnce>
+      <div className="mt-10 h-[600px]">
+        <Canvas className="top-0 left-0 w-full h-full">
+          <Mobius position={[0, 0, 0]} />
+        </Canvas>
+      </div>
+    </Fade>
   )
 }
