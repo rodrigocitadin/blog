@@ -43,21 +43,21 @@ export default function DefaultGeometry() {
   function Torus(props: ThreeElements['mesh']) {
     const ref = useRef<THREE.Mesh>(null!);
     useFrame(() => {
-      ref.current.rotation.x += 0.005;
-      ref.current.rotation.y += 0.005;
+      ref.current.rotation.x += 0.001;
+      ref.current.rotation.y += 0.003;
     });
 
     return (
       <mesh
         {...props}
         ref={ref}
-        scale={0.04}
+        scale={0.05}
       >
-        <torusKnotGeometry args={[70, 30, 80, 10]} />
+        <torusKnotGeometry args={[500, 50, 200, 50]} />
         <meshStandardMaterial
           wireframe
-          color='black'
-          emissive='white'
+          color='white'
+          emissive='gray'
           roughness={1}
           metalness={0.5}
         />
