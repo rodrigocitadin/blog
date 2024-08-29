@@ -3,7 +3,6 @@ import { Ubuntu_Mono } from "next/font/google";
 import Nav from "@/app/components/Nav";
 import "./globals.css";
 import Footer from "./components/Footer";
-import TorusKnot from "./components/TorusKnot";
 
 const inter = Ubuntu_Mono({ subsets: ["latin"], weight: ["400", "700"] });
 
@@ -18,10 +17,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="no-scrollbar">
       <body className={`text-black-900 ${inter.className}`}>
         <Nav />
-        <TorusKnot />
         {children}
         <Footer />
       </body>

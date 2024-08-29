@@ -4,7 +4,7 @@ import { Fade } from "react-awesome-reveal";
 
 export default function Resume() {
   return (
-    <div className="mt-32">
+    <div className="mt-10">
       <Fade triggerOnce>
         <p className="text-lg mb-4">
           {`Meet Citadin, a passionate software engineer with a knack for tackling complex challenges. Since diving into coding in 2020, Citadin has swiftly mastered a range of technologies and methodologies. With 1.5 years of hands-on experience in backend development using Typescript and Nest.js, Citadin has honed their skills in building robust and scalable server-side applications.`}

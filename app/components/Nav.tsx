@@ -1,27 +1,13 @@
 'use client'
 
-import clsx from "clsx";
-import { useEffect, useState } from "react";
+import DefaultGeometry from "./DefaultGeometry"
 
 export default function Nav() {
-  const [bgColor, setBgColor] = useState(false);
-
-  const listenScrollEvent = () => {
-    window.scrollY >= 600
-      ? setBgColor(true)
-      : setBgColor(false)
-  }
-
-  useEffect(() => {
-    window.addEventListener("scroll", listenScrollEvent)
-  }, [bgColor]);
 
   return (
-    <header className={clsx(
-      'z-50 fixed w-full border-b-[1px] border-b-transparent top-0 py-2 transition-all duration-300',
-      { 'bg-white !border-b-light': bgColor }
-    )}>
-      <nav className="md:items-center items-start w-[90%] md:w-[80%] xl:w-[50%] m-auto flex justify-between">
+    <header className='w-full border-b border-light top-0 bg-white'>
+      <DefaultGeometry />
+      <nav className="h-12 fixed -translate-x-1/2 left-1/2 top-0 z-50 md:items-center items-center w-[90%] md:w-[80%] xl:w-[50%] flex justify-between">
         <a
           className="transition-all duration-300 text-2xl border-b-2 border-t-2 border-transparent hover:border-b-black-900"
           href="/"
