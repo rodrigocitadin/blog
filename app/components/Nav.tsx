@@ -1,9 +1,8 @@
-// import { memo } from "react"
 import DefaultGeometry from "./DefaultGeometry"
 
-// const MemoDefaultGeometry = memo(DefaultGeometry)
-
 export default function Nav() {
+  console.log("re-rendering")
+
   return (
     <header className="sticky overflow-hidden bg-white z-40 top-0 border-b border-b-light">
       <nav className="*:text-3xl fixed left-1/2 -translate-x-1/2 top-0 z-50 items-start w-[90%] md:w-[80%] xl:w-[50%] flex flex-col">
