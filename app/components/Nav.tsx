@@ -15,9 +15,9 @@ export default function Nav() {
         </a>
         <a
           className="transition-all duration-300 border-b-2 border-t-2 border-transparent hover:border-b-black-900"
-          href="/blog"
+          href="/posts"
         >
-          blog
+          posts
         </a>
       </nav>
       <div className="-mt-12">
