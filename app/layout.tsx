@@ -18,10 +18,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`text-black-900 ${inter.className}`}>
+      <body className={`min-h-screen justify-between text-black-900 ${inter.className}`}>
         <Nav />
-        {children}
-        <Footer />
+        <main className="flex justify-between min-h-[calc(100vh-110px)] flex-col text-black-900">
+          <div className="w-[90%] md:w-[80%] xl:w-[50%] mx-auto">
+            {children}
+          </div>
+          <Footer />
+        </main>
       </body>
     </html>
   );
