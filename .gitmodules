@@ -1,3 +1,0 @@
-[submodule "themes/til"]
-	path = themes/til
-	url = git@github.com:michenriksen/hugo-theme-til.git
