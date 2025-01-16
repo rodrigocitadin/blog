@@ -1,17 +1,20 @@
-# baseURL = 'https://example.com/'
+baseURL = 'https://example.com/'
 languageCode = 'en-us'
 title = "0xc's blog"
 copyright = 'Rodrigo Citadin' # Used in the footer copyright mention.
 enableRobotsTXT = true # IMPORTANT: set to true if you want to use the theme's genAI/LLM web crawler blocking feature.
-
-[module]
-  [[module.imports]]
-    path = "github.com/michenriksen/hugo-theme-til"
+theme = "til"
 
 [outputs]
   home = ['html']
   section = ['html', 'rss', 'json']
   page = ['html']
+
+[params]
+  showGraph = false
+
+  [params.footer]
+    showThemeCredit = false
 
 [menus]
   # [[menus.main]]
