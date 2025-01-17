@@ -1,4 +1,4 @@
-baseURL = 'https://example.com/blog/'
+baseURL = 'https://example.com/'
 languageCode = 'en-us'
 title = "0xc's blog"
 copyright = 'Rodrigo Citadin' # Used in the footer copyright mention.
@@ -23,7 +23,7 @@ theme = "til"
   #   weight = 20
   [[menus.main]]
     name = 'Posts'
-    pageRef = '/blog/posts'
+    pageRef = '/posts'
     weight = 30
   # [[menus.main]]
   #   name = 'Graph'
