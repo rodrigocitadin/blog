@@ -41,7 +41,7 @@ end
 for _ <- 1..10, do: Task.async(fn -> increment.() end)
 ```
 
-Wait 1 sec and run:
+We are using `:time.sleep` to simulate network instability, so you will need to wait 1 second and run:
 
 ```elixir
 Agent.get(counter, & &1)
