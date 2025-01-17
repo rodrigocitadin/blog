@@ -1,7 +1,7 @@
 +++
 date = '2025-01-13T10:00:00-00:00'
 draft = false
-title = 'Optimistic and Pessimistic Locks'
+title = 'Optimistic and Pessimistic Locks in Elixir'
 +++
 
 When should I use each of them? I will smash your question with the hammer of knowledge.
