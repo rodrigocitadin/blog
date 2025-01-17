@@ -1,4 +1,4 @@
-baseURL = 'https://example.com/'
+baseURL = 'https://example.com/blog/'
 # baseURL = 'https://rodrigocitadin.github.io/blog/'
 languageCode = 'en-us'
 title = "0xc's blog"
