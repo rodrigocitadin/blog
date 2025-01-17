@@ -4,7 +4,7 @@ draft = false
 title = 'Optimistic and Pessimistic Locks'
 +++
 
-When should I use each of them? I will smash your question with the hammer of knowledge, right now!
+When should I use each of them? I will smash your question with the hammer of knowledge.
 
 <!--more-->
 
