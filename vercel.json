@@ -1,8 +1,0 @@
-{
-  "rewrites": [
-    {
-      "source": "/smolbank/:path",
-      "destination": "https://smolbank.vercel.app/smolbank/:path"
-    }
-  ]
-}
