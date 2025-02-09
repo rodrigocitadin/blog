@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/smolbank/:match*",
+      "destination": "https://smolbank.vercel.app/:match*"
+    },
+    {
+      "source": "/smolbank/",
+      "destination": "https://smolbank.vercel.app/"
+    }
+  ]
+}
