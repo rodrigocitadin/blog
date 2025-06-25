@@ -1,6 +1,6 @@
 +++
 date = '2025-06-11'
-draft = false
+draft = true
 title = 'Insecure API: A tour through common web vulnerabilities'
 +++
 
