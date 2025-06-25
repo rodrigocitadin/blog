@@ -1,6 +1,6 @@
 +++
 date = '2025-06-24'
-draft = true
+draft = false
 title = 'Understanding the OSI model and TCP/IP network layers'
 +++
 
