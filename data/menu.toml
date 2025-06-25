@@ -1,0 +1,5 @@
+[[entries]]
+title = "all posts about all things"
+
+  [entries.post_list]
+  show_more_url = "posts"

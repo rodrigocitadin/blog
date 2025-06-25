@@ -1,6 +1,6 @@
 +++
 date = '2024-11-17T10:02:42-03:00'
-draft = true
+draft = false
 title = 'Locks Mutex and Semaphores'
 +++
 

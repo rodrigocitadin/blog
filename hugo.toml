@@ -1,33 +1,4 @@
 baseURL = 'https://example.com/'
 languageCode = 'en-us'
-title = "0xc's blog"
-copyright = 'Rodrigo Citadin' # Used in the footer copyright mention.
-enableRobotsTXT = true # IMPORTANT: set to true if you want to use the theme's genAI/LLM web crawler blocking feature.
-theme = "til"
-
-[outputs]
-  home = ['html']
-  section = ['html', 'rss', 'json']
-  page = ['html']
-
-[params]
-  showGraph = false
-
-  [params.footer]
-    showThemeCredit = false
-
-[menus]
-  [[menus.main]]
-    name = 'Posts'
-    pageRef = '/posts'
-    weight = 30
-
-[markup]
-  [markup.highlight]
-    noClasses = false
-    style = 'tokyonight-night'
-
-  [markup.goldmark]
-    [markup.goldmark.parser]
-      [markup.goldmark.parser.attribute]
-        block = true
+title = "Citadin's well of endless knowledge"
+theme = "nostyleplease"
