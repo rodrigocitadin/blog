@@ -22,8 +22,14 @@ The layers are numbered bottom-up, so the Physical layer is the first. This is w
 
 ## Data Link
 
-Here we focus on network standards such as WiFi 802.11 and Ethernet 802.3. This layer acts as a medium for transmitting signals and includes protocols that define how our packets or frames are processed by the connected devices that share these layers. One important component is the Media Access Control (MAC), which is represented by two hexadecimal characters separated by a colon, forming a total of six pairs of characters.
+Here we focus on network standards such as WiFi 802.11 and Ethernet 802.3. This layer acts as a medium for transmitting signals. One important component is the Media Access Control (MAC), which is represented by two hexadecimal characters separated by a colon, forming a total of six pairs of characters.
 
 ![MAC Address representation](/images/Untitled-2024-08-07-2121.png)
 
-When we look at a packet, will probably have a source MAC Address sending the packet, and a destination MAC Address receiving the packet
+When examining a packet, we typically find a source MAC address that is sending the packet and a destination MAC address that is receiving it. You may wonder why we need MAC addresses when we already have IPv4 or IPv6 addresses. The answer is straightforward: IP operates at layer 3 of the OSI model, while MAC operates at layer 2. This division of responsibilities is important—MAC addresses identify "Who is this computer?" while IP addresses indicate "Where is this computer?" 
+
+Additionally, IP addresses can change frequently; they may vary when you switch networks or reset your router, whereas MAC addresses remain constant. IP relies on network topology, while MAC addresses are tied to the hardware of the network adapter.
+
+## Network
+
+Data Link Layer sends data between two nodes in the same network, here we will explore new oceans, Network layer goes to outside, send and receive data from different networks. Let's look at IP protocol, subnets, submasks, default gateways, public and private addresses. We will not dive in ICMP, VPN or SSL/TLS here, just talk about the basics, I will do another posts later about SSL/TLS and VPN.
