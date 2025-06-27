@@ -6,8 +6,6 @@ title = 'Understanding the OSI model and TCP/IP network layers'
 
 The OSI model and TCP/IP underlie everything we do on the web, from visiting a site and watching a video to liking tweets or having your printer receive a document.
 
-<!--more-->
-
 ## Introduction
 
 First, we need to briefly understand what these two concepts are, as they are not the same. The OSI model is a standard that outlines how networking should occur. It consists of seven layers, which define the rules and methods for how a frame transforms into a packet and how a packet becomes information that your computer can understand. In contrast, the TCP/IP model takes a more focused approach, consisting of generally four to five layers derived from the OSI model.
@@ -32,7 +30,7 @@ Additionally, IP addresses can change frequently; they may vary when you switch 
 
 ## Network
 
-The Data Link Layer is responsible for transferring data between two nodes within the same network. In contrast, the Network Layer extends beyond this, enabling the sending and receiving of data between different networks. Here we will focus on key concepts such as the IP protocol, subnets, subnet masks, default gateways, and public and private addresses. We won't cover ICMP, VPN, or SSL/TLS at this time; those topics will be addressed in a future post.
+The Data Link Layer is responsible for transferring data between two nodes within the same network. In contrast, the Network Layer extends beyond this, enabling the sending and receiving of data between different networks. Here we will focus on key concepts such as the IP protocol, subnets, subnet masks, default gateways, NAT, and public and private addresses. We won't cover ICMP, VPN, or SSL/TLS at this time; those topics will be addressed in a future post.
 
 ### IP Protocol
 
@@ -56,3 +54,15 @@ We discussed submasks in the previous topic, but let's explore them further. IP 
 | `255.255.255.240` | `/28` | 14              |
 
 Given the IP address **192.168.1.10** and a subnet mask of **255.255.255.0**, we know that the first 24 bits are designated for the network and the last 8 bits are allocated for hosts. This means our network address is **192.168.1.0**, and the broadcast address, which sends packets to all other hosts within the network, is **192.168.1.255**. The valid address range for hosts in this network is from **192.168.1.1** to **192.168.1.254**. 
+
+### Default Gateway
+
+This is how packets are sent outside your network: through a default gateway, which is usually the first host in the network. In our previous example, this is **192.168.1.1**.
+
+When you want to access something outside, such as Google's DNS server **8.8.8.8**, your computer first checks if **8.8.8.8** is within your Local Area Network (LAN). Since it's not, your computer will contact the default gateway (usually a router) to locate it externally. There may be several hops between routers before it successfully connects. 
+
+To see how many hops your computer takes to reach the Google DNS server, you can use the `traceroute 8.8.8.8` command. This will also display your default gateway as the first hop.
+
+You might be thinking, "Wait, your example IP is almost like my own IP" This is due to NAT and the differences between public and private IPs. Let's explore this in the next section.
+
+### NAT, Public and Private IPs
