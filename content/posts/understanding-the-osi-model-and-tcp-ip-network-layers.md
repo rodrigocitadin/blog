@@ -66,3 +66,15 @@ To see how many hops your computer takes to reach the Google DNS server, you can
 You might be thinking, "Wait, your example IP is almost like my own IP" This is due to NAT and the differences between public and private IPs. Let's explore this in the next section.
 
 ### NAT, Public and Private IPs
+
+Talking about routers, our default gateways, we often come to Network Address Translation. NAT is the reason you and I can share common IP addresses within our own networks. Specifically, it translates our public IP address — typically the router's IP — into private IP addresses used internally in our networks. Private and public IP addresses follow specific range rules. The table below outlines private IP ranges; any address outside of these ranges is considered a public IP, which means it can be accessed by others on the internet.
+
+| Range                              | CIDR  |
+| ---------------------------------- | ----- |
+| `10.0.0.0` to `10.255.255.255`     | `/8`  |
+| `172.16.0.0` to `172.31.255.255`   | `/12` |
+| `192.168.0.0` to `192.168.255.255` | `/16` |
+
+You can check your IP address, and you will probably see something like **192.168.1.3** for your device, while your smartphone might have an IP address of **192.168.1.4**. However, when you request a website, the request will be sent from your public IP, such as **200.10.10.5**. Network Address Translation (NAT) translates private IP addresses to a public IP address and also handles port forwarding.
+
+## Transport
