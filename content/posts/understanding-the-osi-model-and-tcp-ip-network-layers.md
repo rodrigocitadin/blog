@@ -48,10 +48,10 @@ We discussed submasks in the previous topic, but let's explore them further. IP 
 
 | Subnet Mask       | CIDR  | Hosts Available |
 | ----------------- | ----- | --------------- |
-| `255.0.0.0`       | `/8`  | 16,777,214      |
-| `255.255.0.0`     | `/16` | 65,534          |
-| `255.255.255.0`   | `/24` | 254             |
-| `255.255.255.240` | `/28` | 14              |
+| `255.0.0.0`       | `/8`  | `16,777,214`    |
+| `255.255.0.0`     | `/16` | `65,534`        |
+| `255.255.255.0`   | `/24` | `254`           |
+| `255.255.255.240` | `/28` | `14`            |
 
 Given the IP address **192.168.1.10** and a subnet mask of **255.255.255.0**, we know that the first 24 bits are designated for the network and the last 8 bits are allocated for hosts. This means our network address is **192.168.1.0**, and the broadcast address, which sends packets to all other hosts within the network, is **192.168.1.255**. The valid address range for hosts in this network is from **192.168.1.1** to **192.168.1.254**. 
 
@@ -78,3 +78,14 @@ Talking about routers, our default gateways, we often come to Network Address Tr
 You can check your IP address, and you will probably see something like **192.168.1.3** for your device, while your smartphone might have an IP address of **192.168.1.4**. However, when you request a website, the request will be sent from your public IP, such as **200.10.10.5**. Network Address Translation (NAT) translates private IP addresses to a public IP address and also handles port forwarding.
 
 ## Transport
+
+While IP say to us where to delivery a packet, Transmission Control Protocol (TCP) and User Datagram Protocol (UDP) will say how to delivery a packet, At this layer things become more end to end.
+
+### UDP
+
+This protocol is connectionless, which means we don't need to do anything other than send packets. We simply add the UDP header and send the data without waiting for confirmation of receipt or retransmission. If you're trying to deliver a message, this protocol might not be the best choice. However, if you want to stream a Netflix TV show, you’ve made the right choice. We cannot afford to pause and confirm if we received each packet while users are watching, as this would cause delays. Instead, we continuously send packets; if something is missing, the screen might blur a little, but life goes on.
+
+![UDP Headers](/images/UDP-header.jpg)
+
+The **Source Port** and the **Checksum** are optional fields. Regarding ports, the range is from 1 to 2^16 - 1 (which is 65535), but both 0 and 65535 are reserved. The first 1,000 ports are typically in use for default applications; for example, port 53 is commonly used for DNS.
+
