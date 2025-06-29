@@ -48,10 +48,10 @@ We discussed submasks in the previous topic, but let's explore them further. IP 
 
 | Subnet Mask       | CIDR  | Hosts Available |
 | ----------------- | ----- | --------------- |
-| `255.0.0.0`       | `/8`  | `16,777,214`    |
-| `255.255.0.0`     | `/16` | `65,534`        |
-| `255.255.255.0`   | `/24` | `254`           |
-| `255.255.255.240` | `/28` | `14`            |
+|  255.0.0.0        |  /8   |  16,777,214     |
+|  255.255.0.0      |  /16  |  65,534         |
+|  255.255.255.0    |  /24  |  254            |
+|  255.255.255.240  |  /28  |  14             |
 
 Given the IP address **192.168.1.10** and a subnet mask of **255.255.255.0**, we know that the first 24 bits are designated for the network and the last 8 bits are allocated for hosts. This means our network address is **192.168.1.0**, and the broadcast address, which sends packets to all other hosts within the network, is **192.168.1.255**. The valid address range for hosts in this network is from **192.168.1.1** to **192.168.1.254**. 
 
@@ -71,9 +71,9 @@ Talking about routers, our default gateways, we often come to Network Address Tr
 
 | Range                              | CIDR  |
 | ---------------------------------- | ----- |
-| `10.0.0.0` to `10.255.255.255`     | `/8`  |
-| `172.16.0.0` to `172.31.255.255`   | `/12` |
-| `192.168.0.0` to `192.168.255.255` | `/16` |
+|  10.0.0.0  to  10.255.255.255      |  /8   |
+|  172.16.0.0  to  172.31.255.255    |  /12  |
+|  192.168.0.0  to  192.168.255.255  |  /16  |
 
 You can check your IP address, and you will probably see something like **192.168.1.3** for your device, while your smartphone might have an IP address of **192.168.1.4**. However, when you request a website, the request will be sent from your public IP, such as **200.10.10.5**. Network Address Translation (NAT) translates private IP addresses to a public IP address and also handles port forwarding.
 
@@ -89,3 +89,49 @@ This protocol is connectionless, which means we don't need to do anything other 
 
 The **Source Port** and the **Checksum** are optional fields. Regarding ports, the range is from 1 to 2^16 - 1 (which is 65535), but both 0 and 65535 are reserved. The first 1,000 ports are typically in use for default applications; for example, port 53 is commonly used for DNS.
 
+### TCP
+
+Unlike UDP, TCP is connection-oriented, using a three-way handshake and other mechanisms like sequence numbers to avoid losing packets. Let's take a look at how we establish a TCP connection between two hosts, specifically the three-way handshake.
+
+#### Step 1: Client → Server (SYN)
+
+| Field                     | Value                         |
+| ------------------------- | ----------------------------- |
+| **SYN flag**              | 1 (set)                     |
+| **ACK flag**              | 0 (not set)                 |
+| **Sequence Number**       | 1000                        |
+| **Acknowledgment Number** | — (ignored because ACK=0) |
+
+>  “Hi server, I want to start a connection. My first byte will be #1000.”
+
+#### Step 2: Server → Client (SYN + ACK)
+
+| Field                     | Value               |
+| ------------------------- | ------------------- |
+| **SYN flag**              | 1                 |
+| **ACK flag**              | 1                 |
+| **Sequence Number**       | 5000              |
+| **Acknowledgment Number** | 1001 (C\_ISN + 1) |
+
+> “Okay, I accept. My first byte will be #5000. I acknowledge your byte #1000 — I expect the next to be #1001.”
+
+The `ACK=1` means “I’m responding to your SYN”, and ACK number = your ISN + 1.
+
+#### Step 3: Client → Server (ACK)
+
+| Field                     | Value               |
+| ------------------------- | ------------------- |
+| **SYN flag**              | 0                 |
+| **ACK flag**              | 1                 |
+| **Sequence Number**       | 1001              |
+| **Acknowledgment Number** | 5001 (S\_ISN + 1) |
+
+> “Got your sequence #5000, so I expect #5001 next. Here’s my next byte #1001 — ready to send data!”
+
+It's important to note that `SYN = 1` is only used in the first two steps of the connection establishment. Its purpose is to synchronize sequence numbers. After this initial phase, all packets will have `ACK = 1`. You might be wondering where all this information goes. This relates to the TCP headers. In the final section of this post, I will discuss encapsulation, which will help you understand these headers and their significance. For now, just remember: headers go with the data sent.
+
+![TCP Headers](/images/tcp-header-format.jpeg)
+
+TCP headers are longer than UDP headers. Each time TCP transmits data, the sequence number (SEQ) increases based on the size of the data sent. If the SEQ number does not correspond to the size of the data, it indicates that something has gone wrong, resulting in a retransmission to resend the lost packets.
+
+## Session
