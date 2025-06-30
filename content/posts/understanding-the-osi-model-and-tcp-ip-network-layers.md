@@ -97,21 +97,21 @@ Unlike UDP, TCP is connection-oriented, using a three-way handshake and other me
 
 | Field                     | Value                         |
 | ------------------------- | ----------------------------- |
-| **SYN flag**              | 1 (set)                     |
-| **ACK flag**              | 0 (not set)                 |
-| **Sequence Number**       | 1000                        |
-| **Acknowledgment Number** | — (ignored because ACK=0) |
+|   SYN flag                | 1 (set)                     |
+|   ACK flag                | 0 (not set)                 |
+|   Sequence Number         | 1000                        |
+|   Acknowledgment Number   | — (ignored because ACK=0) |
 
 >  “Hi server, I want to start a connection. My first byte will be #1000.”
 
 #### Step 2: Server → Client (SYN + ACK)
 
-| Field                     | Value               |
-| ------------------------- | ------------------- |
-| **SYN flag**              | 1                 |
-| **ACK flag**              | 1                 |
-| **Sequence Number**       | 5000              |
-| **Acknowledgment Number** | 1001 (C\_ISN + 1) |
+| Field                     | Value             |
+| ------------------------- | ----------------- |
+|   SYN flag                | 1                 |
+|   ACK flag                | 1                 |
+|   Sequence Number         | 5000              |
+|   Acknowledgment Number   | 1001 (C\_ISN + 1) |
 
 > “Okay, I accept. My first byte will be #5000. I acknowledge your byte #1000 — I expect the next to be #1001.”
 
@@ -119,12 +119,12 @@ The `ACK=1` means “I’m responding to your SYN”, and ACK number = your ISN 
 
 #### Step 3: Client → Server (ACK)
 
-| Field                     | Value               |
-| ------------------------- | ------------------- |
-| **SYN flag**              | 0                 |
-| **ACK flag**              | 1                 |
-| **Sequence Number**       | 1001              |
-| **Acknowledgment Number** | 5001 (S\_ISN + 1) |
+| Field                 | Value             |
+| --------------------- | ----------------- |
+| SYN flag              | 0                 |
+| ACK flag              | 1                 |
+| Sequence Number       | 1001              |
+| Acknowledgment Number | 5001 (S\_ISN + 1) |
 
 > “Got your sequence #5000, so I expect #5001 next. Here’s my next byte #1001 — ready to send data!”
 
@@ -135,3 +135,60 @@ It's important to note that `SYN = 1` is only used in the first two steps of the
 TCP headers are longer than UDP headers. Each time TCP transmits data, the sequence number (SEQ) increases based on the size of the data sent. If the SEQ number does not correspond to the size of the data, it indicates that something has gone wrong, resulting in a retransmission to resend the lost packets.
 
 ## Session
+
+This layer focuses on establishing, maintaining, and synchronizing communication between applications running on different hosts. It ensures that data is sent in the correct order and provides mechanisms for recovery in case of transmission failures. While we won't delve deeply into this layer, it’s important to understand concepts such as dialogue control, which includes full-duplex, half-duplex, and simplex communication modes.
+
+- **Simplex:** Data travels just in one direction.                                   
+- **Half-Duplex:** Data can travel in both directions, but only one direction at a time.
+- **Full-Duplex:** Data can travel in both directions simultaneously.                    
+
+HTTP/1.1 typically operates in Half-Duplex mode. This means that either the client or the server can send information, but only one at a time. In contrast, Full-Duplex communication can be seen in scenarios like video conferences or screen sharing on platforms like Discord.
+
+## Presentation
+
+When sending data, it is important to ensure that it is standardized. This involves processes such as data encoding, compression, and encryption. For example, consider the scenario of sending an image via email. First, the image needs to be saved in a common format, such as JPEG or PNG. When we attach the image to the email, it is typically transformed into MIME (Multipurpose Internet Mail Extensions) format, where the data is encoded as a binary file using 7-bit ASCII.
+
+Emails were originally developed to transmit plain text only. To avoid the need for each email client to support every file type with specific extensions, the implementation of MIME became necessary. MIME allows us to send various types of data, such as PNG or JPEG images, seamlessly within emails without requiring individual modifications for each data type, this is why Presentation Layer is so valuable.
+
+### TLS
+
+I mentioned encryption in the previous section, and TLS (Transport Layer Security) helps us with that. Let's discuss the TLS handshake and its certificates.
+
+```
+Client                            Server
+  | ---------- ClientHello --------> |
+  | <--------- ServerHello --------- |
+  | <------ Certificate + Key ------ |
+  | --------- Key exchange --------> |
+  | ----------- Finished ----------> |
+  | <---------- Finished ----------- |
+```
+
+1. Client send a message with some informations: Supported TLS versions, Supported cipher suites, a random number (client random), domain name, extensions like ALPN (used for HTTP/2). The domain name is optional. 
+
+2. Server responds with: Chosen TLS version and cipher suite, a random number (server random), It's digital certificate (X.509), and some other optional things like certificate chain status.
+
+3. Depending on the cipher suite, the client generates a premaster secret, encrypts it with the server's public key, and sends it (RSA key exchange, older method), or they perform **Elliptic Curve Diffie-Hellman (ECDHE)** to derive a shared key without sending it (preferred modern method).
+
+4. Finish exchanging messages, encrypted with the new session key. Each message includes a MAC addresses to verify handshake integrity.
+
+The diagram above illustrates TLS 1.2. There are two main versions of TLS: 1.2 and 1.3. The key difference between them is that TLS 1.3 has a faster handshake process, requiring one less step. Additionally, TLS 1.3 exclusively supports ECDHE for key exchange, and the client’s final message is encrypted earlier in the process, which enhances privacy.
+
+## Application
+
+This is the final layer. When the user is at the door, let's take a look at some protocols of this layer.
+
+| Protocol             | Purpose                                  |
+| -------------------- | ---------------------------------------- |
+|   HTTP/HTTPS         | Web browsing                             |
+|   FTP/SFTP           | File transfer                            |
+|   SMTP, IMAP, POP3   | Email                                    |
+|   DNS                | Name resolution                          |
+|   SNMP               | Network monitoring                       |
+|   SSH                | Secure shell access                      |
+|   Telnet             | Remote login (insecure)                  |
+|   MQTT, AMQP         | Messaging protocols (IoT, microservices) |
+
+In this post, we've discussed everything with one goal: to gain a better understanding of the web, which naturally includes HTTP and HTTPS (HTTP over TLS) and that will be our focus now.
+
+### HTTP
