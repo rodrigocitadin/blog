@@ -1,6 +1,6 @@
 +++
 date = '2025-06-24'
-draft = false
+draft = true
 title = 'Understanding the OSI model and TCP/IP network layers'
 +++
 
@@ -13,6 +13,67 @@ First, we need to briefly understand what these two concepts are, as they are no
 ![OSI and TCP representations](/images/OSI-vs-TCP-vs-Hybrid-2.webp)
 
 As you can see, they are quite similar, with TCP incorporating OSI features. In the following sections, I will discuss all the layers, focusing more on those that are particularly useful for web applications in general.
+
+## Headers, Encapsulation and Decapsulation
+
+First, we need to know some kind of things that are essential to understand everything here. I think about putting this topic in the last, but when writing this, I noticed that a mentioned a lot of thigns without any explanation, like frames, packets and headers. So let's understand these things before all.
+
+The entire OSI model works on adding and removing headers, think about requesting and index.html from some server by HTTPS, you data (request) will travel down the layers, from 7 to 1, and every layer will add their headers, like:
+
+<!-- . **Application Layer:** HTTP request (GET /index.html) -->
+
+<!-- . **Presentation Layer:** Encrypts it (TLS) -->
+
+<!-- . **Transport Layer:** TCP headers, sequence numbers, ports -->
+
+<!-- . **Network Layer:** IP addresses -->
+
+<!-- . **Data Link Layer:** MAC addresses and frame checksum -->
+
+<!-- . **Physical Layer:** Electrical/radio signals on the wire -->
+
+<!-- *(We skipped layer 5 and you will understand that later)* -->
+
+```
+Application Data
+   ↓
++--------------------------+  
+| L7-L5 headers (optional) | ← Application/Presentation/Session
++--------------------------+
+| L4 Header (TCP/UDP)      | ← Transport Layer (segment)
++--------------------------+
+| L3 Header (IP)           | ← Network Layer (packet)
++--------------------------+
+| L2 Header (MAC)          | ← Data Link Layer (frame)
+| L2 Trailer (CRC)         |
++--------------------------+
+| Bits on wire (0s and 1s) | ← Physical Layer
+```
+
+Your request will be some headers + data, the data in this scenario is your HTTP request in plain-text:
+
+```
+GET /index.html HTTP/1.1
+Host: example.com
+User-Agent: Mozilla/5.0
+Accept: text/html
+```
+
+So this will follow this structure:
+
+```
++-------------------------+--------------------------+
+| Layer 7 Headers (HTTP)  |  GET /index.html HTTP... |
++-------------------------+--------------------------+
+```
+
+And then sometime
+
+```
++--------------------+-------------------------+
+| IP Header (L3)     | TCP Segment / UDP Data |
++--------------------+-------------------------+
+```
 
 ## Physical
 
@@ -192,3 +253,37 @@ This is the final layer. When the user is at the door, let's take a look at some
 In this post, we've discussed everything with one goal: to gain a better understanding of the web, which naturally includes HTTP and HTTPS (HTTP over TLS) and that will be our focus now.
 
 ### HTTP
+
+Hypertext Transfer Protocol is the bases of web applications, a stateless and text-based protocol that allows a client (usually a browser) to request resources from a server. It defines how messages are formatted and transmitted, and how web servers and browsers should respond to various commands.
+
+1. Client requests a index.html from example.com
+
+```
+GET /index.html HTTP/1.1
+Host: example.com
+User-Agent: Mozilla/5.0
+Accept: text/html
+```
+
+2. Servers responds with OK and the index.html
+
+```
+HTTP/1.1 200 OK
+Content-Type: text/html
+Content-Length: 1270
+
+<html>...</html>
+```
+
+HTTP has some "verbs" that we call methods to retrieve or modify data, and a lot of response codes that we will no cover here.
+
+
+| Method    | Purpose                          |
+| --------- | -------------------------------- |
+|  GET      | Retrieve data                    |
+|  POST     | Send data to server              |
+|  PUT      | Replace data                     |
+|  PATCH    | Partially update data            |
+|  DELETE   | Remove data                      |
+|  OPTIONS  | Check what methods are supported |
+|  HEAD     | Like GET, but without body       |
