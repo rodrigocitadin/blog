@@ -31,7 +31,7 @@ Each layer has its own terminology for the data, such as segments, packets, and 
 
 In encapsulation, each layer adds headers to the data, and some even modify its structure.
 
-![Encapsulation in practice](/images/how-your-data-travels-the-internet/encapsulation.png)
+![Encapsulation in practice](/images/how-your-data-travels-the-internet/encapsulation.jpeg)
 
 As you can imagine, when another computer reads that entire thing, it will start from the bottom, removing the headers and translating the data.
 
