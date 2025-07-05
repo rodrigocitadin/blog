@@ -35,12 +35,22 @@ In encapsulation, each layer adds headers to the data, and some even modify its 
 
 As you can imagine, when another computer reads that entire thing, it will start from the bottom, removing the headers and translating the data.
 
-Another layer that we will not discuss here is the **Physical/Network** layer, which handles the transmission of wires and bits. However, I will include this layer in the tables and diagrams as I did previously with "Bits on the Wire." This serves as a good example of why we use standardized nomenclature instead of layer indices. The TCP/IP model can have either 4 or 5 layers, while the OSI model has 7 layers, yet both utilize the same protocols and names.
-
-Other steps, such as DNS and routers requesting ARP between different routers, or aspects like VPN, will not be included here. I will create separate posts about those topics later.
+Another layer that we will not discuss here is the **Physical** layer, which handles the wires and bits. However, I will include this layer in the tables and diagrams as I did previously with "Bits on the Wire." This serves as a good example of why we use standardized nomenclature instead of layer indices. The TCP/IP model can have either 4 or 5 layers, while the OSI model has 7 layers, yet both utilize the same protocols and names.
 
 ## Application
 
-Layers are numbered from top to bottom, so this layer is the 4th layer. At the end of the post, I will include an image comparing the OSI and TCP/IP models. You will notice that layers 7, 6, and 5 in the OSI model are combined into layer 4 in the TCP/IP model.
+As mentioned earlier, when you enter **example.com** in your browser, it makes an HTTPS request (HTTP over TLS) to the IP address of **example.com**, which we'll use as an example: **172.217.30.142**. But how does the URL resolve to an IP address? This process is handled by a DNS server. Here’s how it works:
 
+### DNS Server
 
+You can't send information using just domain names; you need IP addresses. To obtain an IP address, your computer first checks if it is already stored in the cache (browser, ISP, or operating system). If it is, great! We can proceed with our HTTP request. If not, we need to follow some steps (reduced to just one because DNS is not our focus here) before everything can move forward.
+
+Your computer will send a UDP packet to a DNS server. Your router or ISP typically provides the address, but you can also use a different DNS server, such as Google's DNS server (IP address 8.8.8.8). The server will then respond with the correct IP address for the requested domain name.
+
+But think DNS Server as a giant HashMap, who maps domain names to IPs:
+
+| Domain name    | IP Address     |
+|----------------|----------------|
+| google.com     | 172.217.30.142 |
+| cloudflare.com | 104.16.132.229 |
+| ...            | ...            |
