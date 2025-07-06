@@ -91,7 +91,7 @@ There are many HTTP methods and response codes. In this case, we have used the G
 |  OPTIONS  | Check what methods are supported |
 |  HEAD     | Like GET, but without body       |
 
-## Transport
+### TLS
 
 We can't transmit our data over the internet in plain text. For example, if you log into Instagram and enter your password, someone could potentially intercept your data packets as they travel. To prevent this, we use TLS (Transport Layer Security), a protocol that encrypts our data before sending it and decrypts it upon arrival. TLS operates in the following way:
 
