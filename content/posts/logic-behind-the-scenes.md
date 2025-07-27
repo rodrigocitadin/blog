@@ -1,7 +1,7 @@
 +++
 date = '2025-07-27'
 draft = true
-title = 'The logic behind the scenes'
+title = 'Logic behind the scenes'
 +++
 
 Have you questioned yourself about how math describes things? You probably have watched the legendary [video](https://www.youtube.com/watch?v=PAZTIAfaNr8) in which a professor says, "Functions describe the world." However, I am not referring to this way of thinking about math; I am discussing logic and how to represent it properly. In this post, I will teach you about **Propositional Logic** and the basics of **First-order Logic**.
@@ -93,6 +93,6 @@ Let's build a truth table to represent this and discover some new information.
 
 Focus on the seventh line, when **r** is true and **(p ∨ q) → (¬r)** is true too, this means John is sleeping and our phrase is true, and if we observe, **p** and **q** are false at this point, so this answers our question: **Joseph can't play piano while John is sleeping.**
 
-Why all this fuss about figuring out something we can infer just by reading? We've just complicated a simple problem. Yes, in this case, that's true, but what if we have 8, 20, or 1,000 variables? Think carefully without a truth table.
+Why all this fuss about figuring out something we can infer just by reading? We've just complicated a simple problem. Yes, in this case, that's true, but what if we have 8, 20, or 1,000 variables? Good luck thinking without a truth table.
 
-Just for information, given a **n** number of atomic formulas (the simplest, indivisible unit of a logical expression, like **p** and **q**), the number of rows will be 2^n and the number of possible truth tables 2^(2^n)
+Just for information, given a **n** number of atomic formulas (the simplest, indivisible unit of a logical expression, like **p** and **q**), the number of rows will be **2^n** and the number of possible truth tables **2^(2^n)**
