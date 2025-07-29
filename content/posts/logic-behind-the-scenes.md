@@ -312,7 +312,7 @@ It also shows the completeness of the logic. For every truth table, we have a fo
 
 And if I don't have any true output? Simple, it is a contradiction that can be represented by this symbol: ⊥
 
-### Building an DNF
+### Building a DNF
 
 Take this truth table as an example, with **A** being the results we want:
 
