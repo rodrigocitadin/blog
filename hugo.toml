@@ -4,6 +4,8 @@ title = "Citadin's well of endless knowledge"
 theme = "nostyleplease"
 
 [params]
+  favicon="favicon.ico"
+
   [params.theme_config]
     appearance        = "light"
     back_home_text    = ".."
