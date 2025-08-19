@@ -2,7 +2,10 @@
 date = '2025-08-19'
 draft = true
 title = 'Option<T> and Result<T, E> are just Monads'
+toc = true
 +++
+
+This post aims to explain to you what a Monad is in simple terms, instead of just "Monad is a Monoid in the category of Endofunctors", this phrase says everything, but let's step back, what are categories, endofunctors, and monoids? 
 
 If you code in Rust, you've probably (99.9%) used Option or Result, but if you haven't coded in Rust or used these Types, here's quick rundown on them.
 
@@ -65,3 +68,21 @@ parse_number("abc");   // Err("not a number")
 ```
 
 We generally use Result to handle errors and Option to handle nulls.
+
+## Talking About Theory
+
+### Categories
+
+### Objects
+
+### Morphisms
+
+### Functors
+
+### Endofunctors
+
+### Monoids
+
+### Monads
+
+## Final Notes
