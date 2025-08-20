@@ -14,4 +14,4 @@ theme = "nostyleplease"
     isShowFooter      = false
 
 [markup.goldmark.renderer]
-unsafe = true
+  unsafe = true

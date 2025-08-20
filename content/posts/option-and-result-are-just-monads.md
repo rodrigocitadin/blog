@@ -1,6 +1,7 @@
 +++
 date = '2025-08-19'
 draft = true
+mathjax = true
 title = 'Option<T> and Result<T, E> are just Monads'
 toc = true
 +++
@@ -75,11 +76,42 @@ To understand Monads, I mentioned that we need to take some steps back, but wher
 
 We'll explore three approaches to explain it: a mathematical definition, an analogy in natural language, and a Rust code example.
 
-## Categories
-
 ## Objects
 
+I thought about starting this by talking about categories, but to talk about them, we need one of the fundamental structures of categories, the Objects.
+
+Objects are abstract things that represent something; we don't have a particular form of constructing an object, and we normally don't care about how the object is, but for visualization, imagine them as solid circles.
+
+To take as an example, a type in Rust can be an object, i.g, `i32, String, Vec<T>`
+
+As mentioned, objects don't value anything by themselves; they just matter something inside a category, but to illustrate this in mathematical terms, we will call them as:
+
+> Object of a category $C$ is an element of class $Ob(C)$
+
 ## Morphisms
+
+While the objects are solid circles, morphisms will be arrows, connecting objects.
+
+The unique thing that a morphisms do is transform an object into another object of the same category, so when you define this function in Rust: 
+
+```rust
+fn length(s: String) -> usize
+```
+
+We are doing a morphism of and `String` to an `usize`, we can write this in mathematical terms
+
+> a morphism $f : A \to B$ in a category $C$ is and element of the $Hom_c(A,B)$ set
+
+Morphisms have some properties that need to be satisfied to be a morphism
+
+- Need to be composable when types coincide
+    > if $f : A \to B$ and $g : B \to C$, so $g \circ f : A \to C$
+- Exist an identity: 
+    > $id_A : A \to A$
+
+## Categories
+
+Here everything lies, our mentioned objects and morphisms just matter when they are inside a category
 
 ## Functors
 
