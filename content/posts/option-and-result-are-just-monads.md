@@ -5,9 +5,9 @@ title = 'Option<T> and Result<T, E> are just Monads'
 toc = true
 +++
 
-This post aims to explain to you what a Monad is in simple terms, instead of just "Monad is a Monoid in the category of Endofunctors", this phrase says everything, but let's step back, what are categories, endofunctors, and monoids? 
+This post aims to explain to you what a Monad is in simple terms, using Option and Result of the Rust language, instead of just "Monad is a Monoid in the category of Endofunctors". 
 
-If you code in Rust, you've probably (99.9%) used Option or Result, but if you haven't coded in Rust or used these Types, here's quick rundown on them.
+This phrase says everything, but let's step back, what are categories, endofunctors, and monoids? 
 
 ## Option
 
@@ -71,32 +71,22 @@ We generally use Result to handle errors and Option to handle nulls.
 
 ---
 
-## Analogy is my passion
+To understand Monads, I mentioned that we need to take some steps back, but where exactly? I won't delve into a full explanation of Category Theory here, only the steps leading to Monads, since the goal of this post is to keep things simple, quick, and easy to grasp.
 
-Imagine a vast, empty universe, and at some point, somehow, some balls start appearing within it. You're so curious about these balls that you decide to examine one more closely. 
+We'll explore three approaches to explain it: a mathematical definition, an analogy in natural language, and a Rust code example.
 
-It has a value and an arrow, but you focus just on the arrow because the value is too abstract to see clearly. You follow that arrow and move on to another ball. 
+## Categories
 
-After a while, you've gone through them all and notice something interesting: each ball shares common properties with the others.
+## Objects
 
-<img width=300 src="/images/option-and-result-are-just-monads/category.png"/>
+## Morphisms
 
-Okay, enough of the balls. You get so absorbed that you lose track of distance and end up going further than usual. You exit the universe and realize that outside, there are other, larger balls. Apparently, there are other universes out there.
+## Functors
 
-![Category Theory Representation](/images/option-and-result-are-just-monads/universe.png)
+## Endofunctors
 
-### Categories
+## Monoids
 
-### Objects
-
-### Morphisms
-
-### Functors
-
-### Endofunctors
-
-### Monoids
-
-### Monads
+## Monads
 
 ## Final Notes
