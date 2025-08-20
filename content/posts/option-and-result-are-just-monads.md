@@ -69,7 +69,21 @@ parse_number("abc");   // Err("not a number")
 
 We generally use Result to handle errors and Option to handle nulls.
 
-## Talking About Theory
+---
+
+## Analogy is my passion
+
+Imagine a vast, empty universe, and at some point, somehow, some balls start appearing within it. You're so curious about these balls that you decide to examine one more closely. 
+
+It has a value and an arrow, but you focus just on the arrow because the value is too abstract to see clearly. You follow that arrow and move on to another ball. 
+
+After a while, you've gone through them all and notice something interesting: each ball shares common properties with the others.
+
+<img width=300 src="/images/option-and-result-are-just-monads/category.png"/>
+
+Okay, enough of the balls. You get so absorbed that you lose track of distance and end up going further than usual. You exit the universe and realize that outside, there are other, larger balls. Apparently, there are other universes out there.
+
+![Category Theory Representation](/images/option-and-result-are-just-monads/universe.png)
 
 ### Categories
 

@@ -12,3 +12,6 @@ theme = "nostyleplease"
     date_format       = "2006-01-02"
     isListGroupByDate = false
     isShowFooter      = false
+
+[markup.goldmark.renderer]
+unsafe = true
