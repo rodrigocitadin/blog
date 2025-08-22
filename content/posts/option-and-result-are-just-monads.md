@@ -111,11 +111,57 @@ Morphisms have some properties that need to be satisfied to be a morphism
 
 ## Categories
 
-Here everything lies, our mentioned objects and morphisms just matter when they are inside a category
+Here everything lies, our mentioned objects and morphisms just matter when they are inside a category, so uniting them, we will have in Rust types as objects, functions as morphisms, and we also need an identity (morphisms to itself).
 
+Defining it in mathematical terms: 
+
+> An category $C$ is a pair of $(Ob(C),Hom(C))$ 
+
+- $Ob(C)$ is a class of objects
+- For each pair of objects $A,B \in Ob(C)$, exists a set $Hom_c(A,B)$ of morphisms from $A$ for $B$
+- Exists an associative composition operation
+    > $\circ : Hom_c(B,C) \times Hom_c(A,B) \to Hom_c(A,C)$
+- For each object $A$, exists an identity morphism $id_A \in Hom_c(A,A)$, which is neutral for the composition
+ 
 ## Functors
 
+While morphisms maps objects to other objects in the same category, functors will map objects to other categories, like "lifting" them in the context
+
+Take the example:
+
+```rust
+let x: Option<i32> = Some(2);
+let y = x.map(|n| n + 1);
+```
+
+- Option takes a type `T` an it becomes `Option<T>`
+- `map` takes a function `f: A -> B` and transforms in `map(f): Option<A> -> Option<B>`
+
+
+In mathematical terms we have:
+
+> A functor $F : C \to D$ between categories
+
+- Function in objects: 
+    > $F : Ob(C) \to Ob(D)$
+- Function in morphisms: 
+    > for each $f : A \to B$ in $C$, a morphisms $F(f) : F(A) \to F(B)$ in $D$, where satisfies:
+    >
+    > 1. $F(id_A) = id_{F(A)}$
+    > 2. $F(g \circ f) = F(g) \circ F(f)$
+
 ## Endofunctors
+
+The same as a functor, but it maps the category to itself
+
+> $F : C \to C$
+
+In our last example with Rust, we used an endofunctor instead of a functor, but I think that you got the point. Doing examples in Rust can be nasty
+
+```rust
+let x: Option<i32> = Some(2);
+let y = x.map(|n| n + 1); // Endofunctor A -> A
+```
 
 ## Monoids
 
