@@ -1,7 +1,7 @@
 +++
 date = '2025-09-28'
 draft = false
-title = 'Unit of Work: Your greatest ally on repository pattern'
+title = 'Unit of Work: Your best friend in the Repository Pattern'
 toc = true
 +++
 
