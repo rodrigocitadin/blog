@@ -3,6 +3,7 @@ date = '2025-09-28'
 draft = false
 title = 'Unit of Work: Your best friend in the Repository Pattern'
 toc = true
+math = true
 +++
 
 I use the [Repository Pattern](https://martinfowler.com/eaaCatalog/repository.html) in almost every large service I build with Golang, usually divided into Services and Repositories. The Service layer handles the logic, and the Repository handles the database calls, but I always struggle with two main issues: handling transactions and the overhead of creating multiple repositories and injecting them into the service. Unit of Work solves both.

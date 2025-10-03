@@ -1,17 +1,17 @@
 baseURL = 'https://example.com/'
 languageCode = 'en-us'
 title = "Citadin's well of endless knowledge"
-theme = "nostyleplease"
+theme = "typo"
 
 [params]
+  description="Your hub of knowledge"
   favicon="favicon.ico"
+  theme="auto"
+  homeCollectionTitle = 'Posts'
+  homeCollection = 'posts'
+  paginationSize = 13
+  listDateFormat = '2 Jan 2006'
 
-  [params.theme_config]
-    appearance        = "light"
-    back_home_text    = ".."
-    date_format       = "2006-01-02"
-    isListGroupByDate = false
-    isShowFooter      = false
-
-[markup.goldmark.renderer]
-  unsafe = true
+[markup]
+  [markup.highlight]
+  style = 'algol'

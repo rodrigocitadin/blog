@@ -3,6 +3,7 @@ date = '2025-07-28'
 draft = false
 title = 'Logic behind the scenes'
 toc = true
+math = true
 +++
 
 Have you questioned yourself about how math describes things? You probably have watched the legendary [video](https://www.youtube.com/watch?v=PAZTIAfaNr8) in which a professor says, "Functions describe the world." However, I am not referring to this way of thinking about math; I am discussing logic and how to represent it properly. In this post, I will teach you about **propositional logic.**

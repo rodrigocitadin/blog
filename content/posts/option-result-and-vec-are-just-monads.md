@@ -4,6 +4,7 @@ draft = true
 mathjax = true
 title = 'Option, Result, and Vec are just Monads'
 toc = true
+math = true
 +++
 
 This post aims to explain to you what a Monad is and why it matters, in simple terms, using Option, Result and Vec of the Rust language instead of just "Monad is a Monoid in the category of Endofunctors". 
