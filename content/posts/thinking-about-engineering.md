@@ -1,6 +1,6 @@
 +++
 date = '2026-01-06'
-draft = true
+draft = false
 title = 'About life'
 toc = true
 +++
