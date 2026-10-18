@@ -305,15 +305,15 @@ What we built has a mathematical name: a **Deterministic Finite Automaton** (DFA
 > $M = (Q, \Sigma, \delta, q_0, F)$
 
 * $Q$ is the set of **states**.
-    > $Q = \lbrace created, pending, analyzing, success, failed, refunded \rbrace$
+    > $Q = \lbrace created,\allowbreak pending,\allowbreak analyzing,\allowbreak success,\allowbreak failed,\allowbreak refunded \rbrace$
 * $\Sigma$ is the set of **events** (mathematicians call it the *alphabet*).
-    > $\Sigma = \lbrace SUBMIT, FLAG, APPROVE, REJECT, CONFIRM, DECLINE, REFUND \rbrace$
+    > $\Sigma = \lbrace SUBMIT,\allowbreak FLAG,\allowbreak APPROVE,\allowbreak REJECT,\allowbreak CONFIRM,\allowbreak DECLINE,\allowbreak REFUND \rbrace$
 * $\delta$ is the **transition function**: it receives a state and an event, and returns the next state.
     > $\delta : Q \times \Sigma \to Q$
 * $q_0$ is the **initial state**, where every payment starts.
     > $q_0 = created$
 * $F$ is the set of **final states**, where the flow is allowed to end.
-    > $F = \lbrace success, failed, refunded \rbrace$
+    > $F = \lbrace success,\allowbreak failed,\allowbreak refunded \rbrace$
 
 If you compare it with our code: $Q$ is `PaymentStatus`, $\Sigma$ is `PaymentEvent`, and $\delta$ is `nextState`. For example:
 

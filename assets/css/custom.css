@@ -9,3 +9,8 @@ img {
 pre.mermaid {
 	text-align: center;
 }
+
+/* keep long formulas from widening the page on mobile */
+blockquote {
+	overflow-x: auto;
+}
