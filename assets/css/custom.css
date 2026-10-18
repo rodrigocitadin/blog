@@ -5,3 +5,7 @@ img {
 .img-full img {
 	padding: 0 1rem;
 }
+
+pre.mermaid {
+	text-align: center;
+}
