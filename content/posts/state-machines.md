@@ -2,6 +2,7 @@
 date = '2026-10-18'
 draft = false
 title = 'Why you should write State Machines'
+description = 'Your payment flow rules are spread across every file. Learn how a state machine puts them in one table, kills race conditions, and gives you tests and docs for free.'
 toc = true
 math = true
 +++
